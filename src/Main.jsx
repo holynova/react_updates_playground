@@ -4,6 +4,8 @@ import App from './components/demo/App';
 import Context from './components/context/Context';
 // import { } from 'antd';
 import './Main.scss';
+import LifeCycle from './components/lifeCycle/LifeCycle';
+import Ref from './components/ref/Ref';
 
 class Main extends Component {
   constructor(props) {
@@ -17,7 +19,9 @@ class Main extends Component {
       <div className='Main' >
         <h1>Main</h1>
         {/* <App></App> */}
-        <Context></Context>
+        {/* <Context></Context> */}
+        <LifeCycle></LifeCycle>
+        <Ref></Ref>
 
       </div>
     );
