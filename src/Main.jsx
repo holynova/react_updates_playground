@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import App from './components/demo/App';
+import Context from './components/context/Context';
 // import { } from 'antd';
-// import './Main.less';
+import './Main.scss';
 
 class Main extends Component {
   constructor(props) {
@@ -13,9 +14,10 @@ class Main extends Component {
   // componentWillReceiveProps(nextProps) { }
   render() {
     return (
-      <div>
+      <div className='Main' >
         <h1>Main</h1>
-        <App></App>
+        {/* <App></App> */}
+        <Context></Context>
 
       </div>
     );
