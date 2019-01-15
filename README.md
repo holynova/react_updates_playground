@@ -1,2 +1,1 @@
-# react_updates_playground
-react新特性的试验
+# react new feature test
