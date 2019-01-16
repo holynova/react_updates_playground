@@ -21,7 +21,7 @@ class Main extends Component {
         {/* <App></App> */}
         {/* <Context></Context> */}
         <LifeCycle></LifeCycle>
-        <Ref></Ref>
+        {/* <Ref></Ref> */}
 
       </div>
     );
