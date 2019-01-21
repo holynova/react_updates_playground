@@ -21,20 +21,20 @@ class Father extends Component {
         Father
       <Son></Son>
       </div>)
-    return (
-      <ColorContext.Consumer>
-        {
-          (val) => {
-            log(val)
-            return <div>
-              Father
-            <Son></Son>
-            </div>
-          }
-        }
-      </ColorContext.Consumer>
+    // return (
+    //   <ColorContext.Consumer>
+    //     {
+    //       (val) => {
+    //         log(val)
+    //         return <div>
+    //           Father
+    //         <Son></Son>
+    //         </div>
+    //       }
+    //     }
+    //   </ColorContext.Consumer>
 
-    );
+    // );
   }
 }
 Father.propTypes = {};

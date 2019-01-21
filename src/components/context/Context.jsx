@@ -16,7 +16,7 @@ class Context extends Component {
   render() {
     return (
       <div>Context
-        <ColorContext.Provider value='green' >
+        <ColorContext.Provider value={{ front: 'yellow', back: '#f60' }} >
           <Father></Father>
           {/* <ColorContext.Consumer> */}
           {/* {value => <Father context={value} ></Father>} */}

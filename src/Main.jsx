@@ -21,10 +21,10 @@ class Main extends Component {
       <div className='Main' >
         <h1>Main</h1>
         {/* <App></App> */}
-        {/* <Context></Context> */}
+        <Context></Context>
         {/* <LifeCycle></LifeCycle> */}
         {/* <Ref></Ref> */}
-        <Lazy></Lazy>
+        {/* <Lazy></Lazy> */}
         {/* <NotLasy></NotLasy> */}
 
       </div>
