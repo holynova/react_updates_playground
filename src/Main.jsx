@@ -6,6 +6,8 @@ import Context from './components/context/Context';
 import './Main.scss';
 import LifeCycle from './components/lifeCycle/LifeCycle';
 import Ref from './components/ref/Ref';
+import Lazy from './components/lazy/Lazy.jsx';
+// import NotLasy from './components/lazy/NotLasy';
 
 class Main extends Component {
   constructor(props) {
@@ -20,8 +22,10 @@ class Main extends Component {
         <h1>Main</h1>
         {/* <App></App> */}
         {/* <Context></Context> */}
-        <LifeCycle></LifeCycle>
+        {/* <LifeCycle></LifeCycle> */}
         {/* <Ref></Ref> */}
+        <Lazy></Lazy>
+        {/* <NotLasy></NotLasy> */}
 
       </div>
     );
