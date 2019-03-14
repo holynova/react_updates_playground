@@ -12,6 +12,7 @@ class ToDoContainer extends Component {
     this.state = {
       inputValue: '',
       items: [],
+      filter: 'all'
     };
   }
   componentDidMount() { }
@@ -66,35 +67,108 @@ class ToDoContainer extends Component {
     })
   }
 
-  render() {
-    return (
-      <div>
-        <h1>
-          ToDoContainer
-        </h1>
-        <Fragment>
-          <input type='text'
-            value={this.state.inputValue}
-            onChange={this.onInputChange}
-            onKeyPress={this.onInputKeypress}
-          ></input>
-          <button onClick={this.create} >add</button>
+  onRadioChange = (e) => {
+    this.setState({
+      filter: e.target.value,
+    })
+  }
 
-        </Fragment>
-        <ul>
-          {this.state.items.map(item => {
-            const { time, content } = item
-            const key = `${time}${content}`;
-            const props = {
-              ...item,
-              key,
-              onClick: this.toggleItem
-            }
-            return (
-              <ToDoListItem {...props} >
-              </ToDoListItem>)
-          })}
-        </ul>
+  renderFilter = (stateValue, key, options = []) => {
+    return (
+      <div className='filterPart' >
+        {options.map(item => {
+          // const {} = item 
+          const props = {
+            type: 'radio',
+            name: key,
+            checked: item === stateValue,
+            onChange: this.onRadioChange,
+            value: item,
+          }
+          return (
+            <div key={item}>
+              <input {...props}></input>
+              <span>{item}</span>
+            </div>)
+        })}
+      </div>
+    )
+  }
+  renderToDoListItem = (item) => {
+    const { time, content } = item
+    const key = `${time}${content}`;
+    const props = {
+      ...item,
+      key,
+      onClick: this.toggleItem
+    }
+    return (
+      <ToDoListItem {...props} >
+      </ToDoListItem>
+    )
+  }
+
+  renderItemPart = () => {
+    let { items, filter } = this.state
+    let filterdItems = items
+    if (filter === 'complete') {
+      filterdItems = items.filter(item => item.complete)
+    } else if (filter === 'unfinished') {
+      filterdItems = items.filter(item => !item.complete)
+    }
+    let res = 'no data, input to add one'
+    if (Array.isArray(filterdItems) && filterdItems.length > 0) {
+
+      res = filterdItems.map(this.renderToDoListItem)
+    }
+    return (
+      <div className="itemPart">
+        {res}
+      </div>)
+
+  }
+  render() {
+    // const itemPart = (
+    //   <div>
+    //     {this.state.items.map(item => {
+    //       const { time, content } = item
+    //       const key = `${time}${content}`;
+    //       const props = {
+    //         ...item,
+    //         key,
+    //         onClick: this.toggleItem
+    //       }
+    //       return (
+    //         <ToDoListItem {...props} >
+    //         </ToDoListItem>)
+    //     })}
+    //   </div>
+    // )
+    // const filterPart = (
+    //   <div>
+    //     <input type='radio' name='filter' value='all'  ></input> <span>all</span>
+    //     <input type='radio' name='filter' value='complete' ></input> <span>complete</span>
+    //     <input type='radio' name='filter' value='unfinished'  ></input> <span>unfinished</span>
+    //   </div>
+    // )
+    const itemPart = this.renderItemPart()
+    const filterPart = this.renderFilter(this.state.filter, 'filter', ['all', 'complete', 'unfinished'])
+    const inputPart = (
+      <div className='inputPart'>
+        <input type='text'
+          value={this.state.inputValue}
+          onChange={this.onInputChange}
+          onKeyPress={this.onInputKeypress}
+        ></input>
+        <button onClick={this.create} >add</button>
+      </div>
+    )
+    return (
+      <div className='ToDoContainer' >
+        {inputPart}
+        {filterPart}
+        {/* {this.state.filter} */}
+        {itemPart}
 
       </div>
     );
