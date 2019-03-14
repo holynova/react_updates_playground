@@ -1,0 +1,9 @@
+.ToDoListItem {
+  margin: 8px 0;
+  text-decoration: none;
+  &.complete {
+    background-color: lightgray;
+    text-decoration: line-through
+  }
+  >input {}
+}

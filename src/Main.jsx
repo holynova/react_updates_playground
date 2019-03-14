@@ -7,6 +7,7 @@ import './Main.scss';
 import LifeCycle from './components/lifeCycle/LifeCycle';
 import Ref from './components/ref/Ref';
 import Lazy from './components/lazy/Lazy.jsx';
+import ToDoContainer from './components/toDoList/ToDoContainer';
 // import NotLasy from './components/lazy/NotLasy';
 
 class Main extends Component {
@@ -20,8 +21,9 @@ class Main extends Component {
     return (
       <div className='Main' >
         <h1>Main</h1>
+        <ToDoContainer></ToDoContainer>
         {/* <App></App> */}
-        <Context></Context>
+        {/* <Context></Context> */}
         {/* <LifeCycle></LifeCycle> */}
         {/* <Ref></Ref> */}
         {/* <Lazy></Lazy> */}
