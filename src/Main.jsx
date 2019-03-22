@@ -9,6 +9,7 @@ import Ref from './components/ref/Ref';
 import Lazy from './components/lazy/Lazy.jsx';
 import ToDoContainer from './components/toDoList/ToDoContainer';
 import Router from './components/router/Router.jsx'
+import TestState from './components/state/TestState';
 // import NotLasy from './components/lazy/NotLasy';
 
 class Main extends Component {
@@ -24,6 +25,7 @@ class Main extends Component {
         <h1>Main</h1>
         <ToDoContainer></ToDoContainer>
         <Router></Router>
+        <TestState></TestState>
         {/* <App></App> */}
         {/* <Context></Context> */}
         {/* <LifeCycle></LifeCycle> */}
