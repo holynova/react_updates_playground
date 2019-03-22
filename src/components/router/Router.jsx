@@ -27,6 +27,7 @@ class Router extends Component {
             <Route path='/home' component={Home} ></Route>
             <Route path='/about' component={About} ></Route>
             <Route path='/blog' component={Blog} ></Route>
+            <Route path='/foo' render={() => (<div>foo</div>)} ></Route>
             <Route path='' component={NotFound} ></Route>
           </Switch>
         </BrowserRouter>
