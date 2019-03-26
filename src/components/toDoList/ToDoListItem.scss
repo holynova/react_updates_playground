@@ -1,9 +1,14 @@
 .ToDoListItem {
+  width: 400px;
   margin: 8px 0;
   text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  line-height: 1.6;
+  background-color: lightblue;
   &.complete {
     background-color: lightgray;
-    text-decoration: line-through
+    text-decoration: line-through;
+    opacity: .3;
   }
   >input {}
 }

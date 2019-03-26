@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // import { } from 'antd';
 import './ToDoContainer.scss';
 import { log } from '../../utils/debugTools'
+import { Motion, TransitionMotion, spring, presets } from 'react-motion'
 
 import ToDoListItem from './ToDoListItem.jsx'
 class ToDoContainer extends Component {
@@ -11,12 +12,16 @@ class ToDoContainer extends Component {
     super(props);
     this.state = {
       inputValue: '',
-      items: [],
+      items: [
+        { complete: false, time: 1, content: 'one' },
+        { complete: false, time: 2, content: 'two' },
+        { complete: false, time: 3, content: 'three' },
+      ],
       filter: 'all'
     };
   }
-  componentDidMount() { }
-  componentWillReceiveProps(nextProps) { }
+  // componentDidMount() { }
+  // componentWillReceiveProps(nextProps) { }
   create = () => {
     let content = this.state.inputValue
     if (!content) {
@@ -121,10 +126,29 @@ class ToDoContainer extends Component {
 
       res = filterdItems.map(this.renderToDoListItem)
     }
+    let animationProps = {
+      defaultStyle: { x: 1024 },
+      style: {
+        x: spring(0, presets.stiff)
+      }
+    }
+    let transProps = {
+      // TransitionStyle:{}
+      styles: [],
+      defaultStyles: [],
+
+    }
     return (
-      <div className="itemPart">
-        {res}
-      </div>)
+      <Motion {...animationProps} >
+        {({ x }) => (
+          <div className="itemPart" style={{ marginLeft: `${x}px` }} >
+            {res}
+          </div>
+        )}
+      </Motion>
+    )
+
+
 
   }
   render() {
@@ -164,6 +188,7 @@ class ToDoContainer extends Component {
       </div>
     )
     return (
+
       <div className='ToDoContainer' >
         {inputPart}
         {filterPart}

@@ -22,10 +22,10 @@ class Main extends Component {
   render() {
     return (
       <div className='Main' >
-        <h1>Main</h1>
+        {/* <h1>Main</h1> */}
         <ToDoContainer></ToDoContainer>
-        <Router></Router>
-        <TestState></TestState>
+        {/* <Router></Router>
+        <TestState></TestState> */}
         {/* <App></App> */}
         {/* <Context></Context> */}
         {/* <LifeCycle></LifeCycle> */}
